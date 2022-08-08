@@ -1,49 +1,119 @@
 <html>
 
 <head>
-    <title>
-        Hand Gesture Web App
-    </title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <title> My Hand Gesture App </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 
-    <script src="https://unpkg.com/ml5@0.4.3/dist/ml5.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/webcamjs/1.0.26/webcam.js"></script>
+  <script src="https://unpkg.com/ml5@0.4.3/dist/ml5.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/webcamjs/1.0.26/webcam.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@1,500&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 
 <body>
-    <div>
-        <center>
+
+
+  <div class="container" id="title_div">
+
+    <center>
+      <h3 id="title" class="btn btn-success heading" class="col-md-4 col-sm-12 col-xs-12"><b><i>"Talk to my
+            hand"</i></b>
+        <br>
+        <hr>
+        <span id="hand_gesture_1">&#9994;</span>
+        <span id="hand_gesture_2">&#9996;&#127995</span>
+        <span id="hand_gesture_3">&#128406;&#127996</span>
+        <span id="hand_gesture_4">&#129304;&#127997</span>
+        <span id="hand_gesture_5">&#128076;&#127998</span>
+        <span id="hand_gesture_6">&#129305;&#127999</span>
+        <span id="hand_gesture_7">&#129310;&#127996</span>
+        <span id="hand_gesture_8">&#128405</span>
+      </h3>
+      <br>
+      <br>
+
+
+      <h3 id="direction_text"><b><i>Take a picture of any one of these Hand Gestures above and below to learn about its
+            meaning...</i></b></h3>
+      <br>
+      <br>
+      <h4 id="secondary_instruction_text"><b><i>Here is a list of the Hand Gestures that you may take a picture of
+            below.</i></b></h4>
+      <br>
+      <br>
+      <p id="emoji_list" style="font-size: 40px;">
+        |&#9994;|&#9996;&#127995|&#128406;&#127996|&#129304;&#127997|&#128076;&#127998|&#129305;&#127999|&#129310;&#127996|&#128405;&#127995|
+      </p>
+
+
+      <div id="webcam" class="col-md-4 col-sm-12 col-xs-12">
+        <label id="webcam_text"><b><i>Webcam View - </i></b></label>
+        <div id="camera"></div>
+        <br>
+        <br>
+        <button id="capture_image_button" onclick="take_snapshot()" class="btn btn-info"><b><i> Capture
+            </i></b></button>
+      </div>
+
+
+      <div class="col-md-4 col-sm-12 col-xs-12">
+        <label class="prediction_text" id="prediction_1_text"><b><i>Prediction 1 - </i></b></label>
+          <p class="emoji_handGesture" id="update_emoji_handGesture"><b><i></i></b></p>
             <br>
-            <div id="hand_gesture_heading" class="col-md-4 col-sm-12 col-xs-12 btn btn-success">
-                <h2 id="heading_title"><b><i>Hand Gesture Web App</i></b></h2>
-                <br>
-                <span id="hand_gesture_1">&#9994</span>
-                <span id="hand_gesture_2">&#9996;&#127995</span>
-                <span id="hand_gesture_3">&#128406;&#127996</span>
-                <span id="hand_gesture_4">&#129304;&#127997</span>
-                <span id="hand_gesture_5">&#128076;&#127998</span>
-                <span id="hand_gesture_6">&#129305;&#127999</span>
-                <span id="hand_gesture_7">&#129310;&#127996</span>
-                <span id="hand_gesture_8">&#128405</span>
-            </div>
+              <p class="handGesture_name" id="result_handGesture_name"><b><i></i></b></p>
+                <p class="confidence_text" id="confidence_text1"><b><i></i></b></p>
             <br>
+                  <p class="example_text" id="example_text1"><b><i></i></b></p>
             <br>
-            <div id="instruction_div" class="col-md-4 col-sm-12 col-xs-12">
-                <h3 id="instruction_tag"><b><i>Take a picture of any one of these Hand Gestures above and below to learn about its meaning...</i></b></h3>
-                <br>
-                <br>
-                <h4 id="secondary_instruction_text"><b><i>Here is a list of the Hand Gestures that you may take a picture of below.</i></b></h4>
-                <br>
-                <br>
-                
-            </div>
-        </center>
-    </div>
+
+
+        <label class="prediction_text" id="prediction_2_text"><b><i>Prediction 2 - </i></b></label>
+          <p class="emoji_handGesture" id="update_emoji_handGesture2"><b><i></i></b></p>
+            <br>
+              <p class="handGesture_name" id="result_handGesture_name2"><b><i></i></b></p>
+                <p class="confidence_text" id="confidence_text2"><b><i></i></b></p>
+            <br>
+                  <p class="example_text" id="example_text2"><b><i></i></b></p>
+            <br>
+
+
+        <label class="prediction_text" id="prediction_3_text"><b><i>Prediction 3 - </i></b></label>
+          <p class="emoji_handGesture" id="update_emoji_handGesture3"><b><i></i></b></p>
+            <br>
+              <p class="handGesture_name" id="result_handGesture_name3"><b><i></i></b></p>
+                <p class="confidence_text" id="confidence_text3"><b><i></i></b></p>
+            <br>
+                  <p class="example_text" id="example_text3"><b><i></i></b></p>
+            <br>
+
+
+        <label class="prediction_text" id="prediction_4_text"><b><i>Prediction 4 - </i></b></label>
+          <p class="emoji_handGesture" id="update_emoji_handGesture4"><b><i></i></b></p>
+            <br>
+              <p class="handGesture_name" id="result_handGesture_name4"><b><i></i></b></p>
+                <p class="confidence_text" id="confidence_text4"><b><i></i></b></p>
+            <br>
+                  <p class="example_text" id="example_text4"><b><i></i></b></p>
+      </div>
+
+
+      <div class="col-md-4 col-sm-12 col-xs-12">
+        <label id="snapshot_label"><b><i>Snapshot - </i></b></label>
+          <div id="result">
+          </div>
+        <br>
+        <br>
+        <button id="recognize_image_button" onclick="identify()" class="btn btn-success"><b><i>Identify</i></b></button>
+      </div>
+    </center>
+  </div>
+  <script src="main.js"></script>
 </body>
 
 </html>

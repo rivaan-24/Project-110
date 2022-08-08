@@ -1,0 +1,127 @@
+.heading {
+  font-size: 18px;
+  border-radius: 10px;
+  letter-spacing: 5px;
+}
+
+body {
+  background: linear-gradient(rgb(144, 0, 255), rgb(226, 74, 99), pink);
+  text-align: center;
+}
+
+span {
+  font-size: 30px;
+}
+
+#camera,
+#result {
+  border: 2px dashed black;
+  width: 350px;
+  height: 300px;
+}
+
+#result_emotion_name,
+#result_emotion_name2 {
+  color: black;
+}
+
+.emotion_name {
+  font-size: 40px;
+}
+
+.emoji {
+  font-size: 48px;
+}
+
+#title {
+  font-size: 50px;
+  font-family: 'Raleway', sans-serif;
+  color: black;
+  letter-spacing: 3px;
+  font-weight: 800;
+}
+
+#direction_text {
+  font-size: 30px;
+  font-family: 'Raleway', sans-serif;
+  color: black;
+  letter-spacing: 3px;
+  font-weight: 600;
+}
+
+#secondary_instruction_text {
+  font-size: 20px;
+  font-family: 'Raleway', sans-serif;
+  color: black;
+  letter-spacing: 3px;
+  font-weight: 400;
+}
+
+#webcam_text {
+  font-size: 15px;
+  font-family: 'Raleway', sans-serif;
+  color: black;
+  letter-spacing: 3px;
+  font-weight: 200;
+}
+
+#capture_image_button {
+  font-size: 15px;
+  font-family: 'Raleway', sans-serif;
+  color: black;
+  letter-spacing: 2px;
+  font-weight: 200;
+}
+
+.prediction_text {
+  font-size: 20px;
+  font-family: 'Raleway', sans-serif;
+  color: black;
+  letter-spacing: 3px;
+  font-weight: 500;
+  margin-top: 30px;
+}
+
+.handgesture_name {
+  font-size: 20px;
+  font-family: 'Raleway', sans-serif;
+  color: black;
+  letter-spacing: 3px;
+  font-weight: 600;
+}
+
+.confidence_text {
+  font-size: 10px;
+  font-family: 'Raleway', sans-serif;
+  color: black;
+  letter-spacing: 3px;
+  font-weight: 600;
+}
+
+.example_text {
+  font-size: 10px;
+  font-family: 'Raleway', sans-serif;
+  color: black;
+  letter-spacing: 2px;
+  font-weight: 600;
+}
+
+#snapshot_label {
+  font-size: 15px;
+  font-family: 'Raleway', sans-serif;
+  color: black;
+  letter-spacing: 2px;
+  font-weight: 200;
+}
+
+#recognize_image_button {
+  font-size: 15px;
+  font-family: 'Raleway', sans-serif;
+  color: black;
+  letter-spacing: 2px;
+  font-weight: 200;
+}
+
+.emoji_handgesture {
+  font-size: 30px;
+}
